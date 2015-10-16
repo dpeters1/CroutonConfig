@@ -1,6 +1,6 @@
 A script that configures Crouton installations.
 
-[https://goo.gl/R2ZnHV](Download Installer)
+[Download Installer](https://goo.gl/R2ZnHV)
 
 Features:
 
