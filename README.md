@@ -1,6 +1,6 @@
 A script that configures Crouton installations.
 
-[Download Installer](https://goo.gl/R2ZnHV)
+[Download Installer](https://goo.gl/mwbzuk)
 
 [Download Crouton Extension](https://goo.gl/h6Xk5u)
 <br>This is required to display chroots inside chromeos tabs. Nothing except the terminal will work without it.
