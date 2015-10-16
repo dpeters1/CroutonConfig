@@ -22,5 +22,6 @@ alias term="sudo enter-chroot"
 alias on="sudo start powerd"
 alias off="sudo enter-chroot brightness 0%; sudo stop powerd"
 alias root="cd mnt/stateful_partition/crouton/chroots/trusty"
+alias shortcuts="sh ~/Shortcuts"
 
 # Put your fun stuff here.
