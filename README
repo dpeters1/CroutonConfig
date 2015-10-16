@@ -1,0 +1,13 @@
+A script that configures Crouton installations.
+
+Features:
+
+Ubuntu 14.04
+No Desktop Interface
+Uses XIWI target to run programs in ChromeOS tabs
+Installs:
+Spotify
+Steam
+Linux
+VLC
+Python 3.4
