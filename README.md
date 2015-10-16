@@ -3,21 +3,21 @@ A script that configures Crouton installations.
 [Download Installer](https://goo.gl/R2ZnHV)
 
 [Download Crouton Extension](https://goo.gl/h6Xk5u)
-This is required to display chroots inside chromeos tabs. Nothing except the terminal will work without it.
+<br>This is required to display chroots inside chromeos tabs. Nothing except the terminal will work without it.
 
 Features:
 
-1. Ubuntu 14.04
-2. No Desktop Interface
-3. Uses XIWI target to run programs in ChromeOS tabs
+Ubuntu 14.04
+<br>No Desktop Interface
+<br>Uses XIWI target to run programs in ChromeOS tabs
 
 Installs on top of regular chroot:
 
-1. Spotify
-2. Steam
-3. Skype
-4. VLC
-5. Python 3.4
+<br>Spotify
+<br>Steam
+<br>Skype
+<br>VLC
+<br>Python 3.4
 
 Instructions:
 
