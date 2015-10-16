@@ -18,7 +18,8 @@ Instructions:
 
 1. Download Installer file
 2. Open a shell in chromeos and type 
-''''sh ~/Downloads/Install
+''''bash
+sh ~/Downloads/Install
 ''''
 3. Wait ~15 minutes for ubuntu to install
 4. Follow on screen instructions
