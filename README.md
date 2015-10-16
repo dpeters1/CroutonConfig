@@ -12,7 +12,7 @@ Installs on top of regular chroot:
 
 1. Spotify
 2. Steam
-3. Linux
+3. Skype
 4. VLC
 5. Python 3.4
 
