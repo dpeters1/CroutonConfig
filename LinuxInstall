@@ -14,8 +14,8 @@ wget https://steamcommunity.com/linkfilter/http://media.steampowered.com/client/
 #Install packages
 sudo apt-get install spotify-client libpangoxft-1.0-0 pulseaudio gdebi-core vlc nano bash-completion
 
-sudo gdebi skype-ubuntu-precise_4.3.0.37-1_i386.deb
-sudo gdebi steam.deb
+sudo gdebi -n skype-ubuntu-precise_4.3.0.37-1_i386.deb
+sudo gdebi -n steam.deb
 
 #Test whether spotify, skype, and linux were installed successfully
 echo ""; echo "Successfully Installed:"; echo ""
