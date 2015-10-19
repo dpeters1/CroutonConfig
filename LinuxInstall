@@ -1,25 +1,67 @@
 #!/bin/bash
 #Linux Script
+
+echo "Programs to be Installed:"
+
+programs=( Spotify Skype Steam VLC ArduinoIDE )
+
+for program in ${programs[@]}
+do
+   echo -n $program "[Y/N]"
+   read yn
+   while true; do
+        case $yn in
+            [Yy]* ) break;;
+            [Nn]* ) break;;
+             * ) read -p "Incorrect Input. Yes or No > " yn;;
+        esac
+        done
+   install+=($yn)
+   
+done
+
+
 sudo dpkg --add-architecture i386
 
-#Spotify Pre-reqs
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update
+sudo apt-get -y install libpangoxft-1.0-0 pulseaudio gdebi-core nano bash-completion
 
-#Download Steam and Skype
-wget download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
-wget https://steamcommunity.com/linkfilter/http://media.steampowered.com/client/installer/steam.deb
+#Install Spotify
+if echo "${install[0]}" | grep -iq "^y" ;then
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
+    echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+    sudo apt-get -y update; sudo apt-get -y install spotify-client;
+fi
 
-#Install packages
-sudo apt-get install spotify-client libpangoxft-1.0-0 pulseaudio gdebi-core vlc nano bash-completion
+#Install Skype
+if echo "${install[1]}" | grep -iq "^y" ;then
+    wget download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
+    sudo gdebi -n skype-ubuntu-precise_4.3.0.37-1_i386.deb
+fi
 
-sudo gdebi -n skype-ubuntu-precise_4.3.0.37-1_i386.deb
-sudo gdebi -n steam.deb
+#Install Steam
+if echo "${install[2]}" | grep -iq "^y" ;then
+    wget https://steamcommunity.com/linkfilter/http://media.steampowered.com/client/installer/steam.deb
+    sudo gdebi -n steam.deb
+fi
+
+#Install Arduino
+if echo "${install[4]}" | grep -iq "^y" ;then
+#    wget https://s3.amazonaws.com/adafruit-download/adafruit-arduino-1.6.4-linux64.tar.xz
+#    tar xf adafruit-arduino-1.6.4-linux64.tar.xz -C ~/
+#    sudo apt-get -y install openjdk-7-jre
+    sudo apt-get install arduino arduino-core
+    sudo adduser $USER dialout
+    sudo adduser $USER serial
+fi
+
+#Install VLC
+if echo "${install[3]}" | grep -iq "^y" ;then
+    sudo apt-get -y install vlc
+fi
 
 #Test whether spotify, skype, and linux were installed successfully
-echo ""; echo "Successfully Installed:"; echo ""
+echo; echo "Successfully Installed:"; echo
 
-dpkg --get-selections | grep -o "spotify\|steam\|skype"; echo "python 3.4"; echo "vlc"
+dpkg --get-selections | grep -om4 "spotify\|steam\|skype\|arduino";dpkg --get-selections | grep -wom1 vlc; echo "python" 
 
-echo ""; echo ""; echo ""
+echo; echo;
