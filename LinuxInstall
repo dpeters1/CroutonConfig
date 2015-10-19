@@ -20,6 +20,11 @@ do
    
 done
 
+echo > ~/Downloads/programs.txt
+for i in {0..4}
+do
+   echo "${install[i]}" >> ~/Downloads/programs.txt
+done
 
 sudo dpkg --add-architecture i386
 
@@ -46,14 +51,13 @@ fi
 
 #Install Arduino
 if echo "${install[4]}" | grep -iq "^y" ;then
-#    wget https://s3.amazonaws.com/adafruit-download/adafruit-arduino-1.6.4-linux64.tar.xz
-#    tar xf adafruit-arduino-1.6.4-linux64.tar.xz -C ~/
-#    sudo apt-get -y install openjdk-7-jre
-    sudo apt-get install arduino arduino-core
+#wget https://s3.amazonaws.com/adafruit-download/adafruit-arduino-1.6.4-linux64.tar.xz
+#tar xf adafruit-arduino-1.6.4-linux64.tar.xz -C ~/
+#sudo apt-get -y install openjdk-7-jre
+    sudo apt-get -y install arduino arduino-core
     sudo adduser $USER dialout
     sudo adduser $USER serial
 fi
-
 #Install VLC
 if echo "${install[3]}" | grep -iq "^y" ;then
     sudo apt-get -y install vlc
@@ -62,6 +66,6 @@ fi
 #Test whether spotify, skype, and linux were installed successfully
 echo; echo "Successfully Installed:"; echo
 
-dpkg --get-selections | grep -om4 "spotify\|steam\|skype\|arduino";dpkg --get-selections | grep -wom1 vlc; echo "python" 
+dpkg --get-selections | grep -o "spotify\|steam\|skype\|";dpkg --get-selections | grep -wom1 vlc;dpkg --get-selections | grep -wom1 arduino; echo "python" 
 
 echo; echo;
