@@ -14,7 +14,7 @@ sudo sh crouton -r trusty -t xiwi,core
 sudo cp LinuxInstall /mnt/stateful_partition/crouton/chroots/trusty/bin
 
 #Install other programs and configure chroot
-sudo enter-chroot -l sh /bin/LinuxInstall
+sudo enter-chroot -l bash /bin/LinuxInstall
 
 #Move files and clean up
 mv bashrc ~/.bashrc
