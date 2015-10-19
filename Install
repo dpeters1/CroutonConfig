@@ -5,7 +5,7 @@
 cd ~/Downloads
 wget https://github.com/dnschneid/crouton/raw/master/installer/crouton
 wget https://github.com/dpeters1/CroutonConfig/raw/master/LinuxInstall
-wget https://github.com/dpeters1/CroutonConfig/raw/master/bashrc
+wget https://github.com/dpeters1/CroutonConfig/raw/master/bashMod
 wget https://github.com/dpeters1/CroutonConfig/raw/master/Shortcuts
 
 #Install chroot
@@ -17,16 +17,17 @@ sudo cp LinuxInstall /mnt/stateful_partition/crouton/chroots/trusty/bin
 sudo enter-chroot -l bash /bin/LinuxInstall
 
 #Move files and clean up
-mv bashrc ~/.bashrc
+bash bashMod
 sudo mv Shortcuts ~/Shortcuts
 rm -rf crouton
 rm -rf Install
 rm -rf LinuxInstall
+rm -rf bashMod
 
 #List command aliases
 echo ""
 echo "All Done"
 echo ""
-sh ~/Shortcuts
+bash ~/Shortcuts
 echo ""
 cd /; exec bash
