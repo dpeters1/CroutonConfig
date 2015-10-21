@@ -4,19 +4,19 @@
 cd ~/
 readarray install < programs.txt
 
-if echo "${install[0]}" | grep -iq "^y" ;then
+if echo "${install[1]}" | grep -iq "^y" ;then
     echo 'alias spotify="sudo enter-chroot -b xiwi -T spotify"' >> .bashrc
 fi
-if echo "${install[1]}" | grep -iq "^y" ;then
+if echo "${install[2]}" | grep -iq "^y" ;then
     echo 'alias skype="sudo enter-chroot -b xiwi -T skype"' >> .bashrc
 fi
-if echo "${install[2]}" | grep -iq "^y" ;then
+if echo "${install[3]}" | grep -iq "^y" ;then
     echo 'alias steam="sudo enter-chroot -b xiwi -T steam"' >> .bashrc
 fi
-if echo "${install[3]}" | grep -iq "^y" ;then
+if echo "${install[4]}" | grep -iq "^y" ;then
     echo 'alias vlc="sudo enter-chroot -b xiwi -F vlc"' >> .bashrc
 fi
-if echo "${install[4]}" | grep -iq "^y" ;then
+if echo "${install[5]}" | grep -iq "^y" ;then
     echo 'alias arduino="sudo enter-chroot -b xiwi -F arduino"' >> .bashrc
 fi
 echo 'alias term="sudo enter-chroot"' >> .bashrc
