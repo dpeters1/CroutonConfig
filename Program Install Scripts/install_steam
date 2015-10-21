@@ -1,0 +1,5 @@
+#!/bin/bash
+#Install Steam
+
+wget https://steamcommunity.com/linkfilter/http://media.steampowered.com/client/installer/steam.deb
+sudo gdebi -n steam.deb

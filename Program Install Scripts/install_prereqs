@@ -1,0 +1,5 @@
+#!/bin/bash
+#install some pre-reqs
+
+sudo dpkg --add-architecture i386
+sudo apt-get -y install libpangoxft-1.0-0 pulseaudio gdebi-core nano bash-completion

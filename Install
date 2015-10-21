@@ -4,29 +4,81 @@
 #Download required scripts
 cd ~/Downloads
 wget https://github.com/dnschneid/crouton/raw/master/installer/crouton
-wget https://github.com/dpeters1/CroutonConfig/raw/master/LinuxInstall
-wget https://github.com/dpeters1/CroutonConfig/raw/master/bashrc
+wget https://github.com/dpeters1/CroutonConfig/raw/master/bashMod
 wget https://github.com/dpeters1/CroutonConfig/raw/master/Shortcuts
 
 #Install chroot
-sudo sh crouton -r trusty -t xiwi,core
+#sudo sh crouton -r trusty -t xiwi,core
 
-sudo cp LinuxInstall /mnt/stateful_partition/crouton/chroots/trusty/bin
+#sudo cp LinuxInstall /mnt/stateful_partition/crouton/chroots/trusty/bin
 
-#Install other programs and configure chroot
-sudo enter-chroot -l sh /bin/LinuxInstall
+echo "Programs to be Installed:"
+
+programs=( Spotify Skype Steam VLC ArduinoIDE )
+
+for program in ${programs[@]}
+do
+   echo -n $program "[Y/N]"
+   read yn
+   while true; do
+        case $yn in
+            [Yy]* ) break;;
+            [Nn]* ) break;;
+             * ) read -p "Incorrect Input. Yes or No > " yn;;
+        esac
+        done
+   install+=($yn)
+   
+done
+
+echo > ~/programs.txt
+for i in {0..4}
+do
+   echo "${install[i]}" >> ~/programs.txt
+done
+
+#Install Spotify
+if echo "${install[0]}" | grep -iq "^y" ;then
+    echo "Installing spotify"
+    sudo enter-chroot -l bash install_spotify
+fi
+
+#Install Skype
+if echo "${install[1]}" | grep -iq "^y" ;then
+    echo "Installing spotify"
+    sudo enter-chroot -l bash install_skype
+fi
+
+#Install Steam
+if echo "${install[2]}" | grep -iq "^y" ;then
+    echo "Installing spotify"
+    sudo enter-chroot -l bash install_steam
+fi
+
+#Install Arduino
+if echo "${install[4]}" | grep -iq "^y" ;then
+    echo "Installing spotify"
+    sudo enter-chroot -l bash install_arduino
+fi
+#Install VLC
+if echo "${install[3]}" | grep -iq "^y" ;then
+    echo "Installing spotify"
+    sudo enter-chroot -l bash install_vlc
+fi
+
 
 #Move files and clean up
-mv bashrc ~/.bashrc
 sudo mv Shortcuts ~/Shortcuts
-rm -rf crouton
-rm -rf Install
-rm -rf LinuxInstall
+bash bashMod
+#rm -rf crouton
+#rm -rf Install
+#rm -rf LinuxInstall
+#rm -rf bashMod
 
 #List command aliases
 echo ""
 echo "All Done"
 echo ""
-sh ~/Shortcuts
+bash ~/Shortcuts
 echo ""
 cd /; exec bash

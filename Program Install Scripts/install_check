@@ -1,0 +1,8 @@
+#!/bin/bash
+#Test whether spotify, skype, and linux were installed successfully
+
+echo; echo "Successfully Installed:"; echo
+
+dpkg --get-selections | grep -o "spotify\|steam\|skype\|";dpkg --get-selections | grep -wom1 vlc;dpkg --get-selections | grep -wom1 arduino; echo "python" 
+
+echo; echo;
