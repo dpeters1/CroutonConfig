@@ -6,11 +6,10 @@ cd ~/Downloads
 wget https://github.com/dnschneid/crouton/raw/master/installer/crouton
 wget https://github.com/dpeters1/CroutonConfig/raw/master/bashMod
 wget https://github.com/dpeters1/CroutonConfig/raw/master/Shortcuts
-
+sudo wget -P /mnt/stateful_partition/crouton/chroots/trusty https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_prereqs
+sudo wget -P /mnt/stateful_partition/crouton/chroots/trusty https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_check
 #Install chroot
-#sudo sh crouton -r trusty -t xiwi,core
-
-#sudo cp LinuxInstall /mnt/stateful_partition/crouton/chroots/trusty/bin
+sudo sh crouton -r trusty -t xiwi,core
 
 echo "Programs to be Installed:"
 
@@ -39,33 +38,33 @@ done
 
 #Install Spotify
 if echo "${install[0]}" | grep -iq "^y" ;then
-    wget https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_spotify
+    sudo wget -P /mnt/stateful_partition/crouton/chroots/trusty https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_spotify
     sudo enter-chroot -l bash install_spotify
 fi
 
 #Install Skype
 if echo "${install[1]}" | grep -iq "^y" ;then
-    wget https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_skype
+    sudo wget -P /mnt/stateful_partition/crouton/chroots/trusty https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_skype
     sudo enter-chroot -l bash install_skype
 fi
 
 #Install Steam
 if echo "${install[2]}" | grep -iq "^y" ;then
-    wget https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_steam
+    sudo wget -P /mnt/stateful_partition/crouton/chroots/trusty https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_steam
     sudo enter-chroot -l bash install_steam
 fi
 
 #Install Arduino
 if echo "${install[4]}" | grep -iq "^y" ;then
-    wget https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_arduino
+    sudo wget -P /mnt/stateful_partition/crouton/chroots/trusty https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_arduino
     sudo enter-chroot -l bash install_arduino
 fi
 #Install VLC
 if echo "${install[3]}" | grep -iq "^y" ;then
-    wget https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_vlc
+    sudo wget -P /mnt/stateful_partition/crouton/chroots/trusty https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_vlc
     sudo enter-chroot -l bash install_vlc
 fi
-
+sudo enter-chroot -l bash install_check
 
 #Move files and clean up
 sudo mv Shortcuts ~/Shortcuts
