@@ -1,11 +1,28 @@
 #!/bin/bash
 #Lists shell aliases
 
+
+
 echo "Shortcuts:"
-echo "spotify --> Open Spotify"
-echo "steam --> Open Steam"
-echo "skype --> Open Skype"
-echo "vlc --> Open VLC"
+
+readarray install < ~/programs.txt
+
+if echo "${install[1]}" | grep -iq "^y" ;then
+   echo "spotify --> Open Spotify"
+fi
+if echo "${install[2]}" | grep -iq "^y" ;then
+    echo "skype --> Open Skype"
+fi
+if echo "${install[3]}" | grep -iq "^y" ;then
+    echo "steam --> Open Steam"
+fi
+if echo "${install[4]}" | grep -iq "^y" ;then
+    echo "vlc --> Open VLC"
+fi
+if echo "${install[5]}" | grep -iq "^y" ;then
+    echo "arduino --> Open Arduino IDE"
+fi
+
 echo "term --> Open chroot terminal"
 echo "off --> turn off screen but disable Standby when lid closed **USE WITH CAUTION**"
 echo "on --> turn on screen and enable standby **Must type on and press enter to resume from "off" "
