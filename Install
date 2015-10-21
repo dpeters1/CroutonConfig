@@ -39,30 +39,30 @@ done
 
 #Install Spotify
 if echo "${install[0]}" | grep -iq "^y" ;then
-    echo "Installing spotify"
+    wget https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_spotify
     sudo enter-chroot -l bash install_spotify
 fi
 
 #Install Skype
 if echo "${install[1]}" | grep -iq "^y" ;then
-    echo "Installing spotify"
+    wget https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_skype
     sudo enter-chroot -l bash install_skype
 fi
 
 #Install Steam
 if echo "${install[2]}" | grep -iq "^y" ;then
-    echo "Installing spotify"
+    wget https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_steam
     sudo enter-chroot -l bash install_steam
 fi
 
 #Install Arduino
 if echo "${install[4]}" | grep -iq "^y" ;then
-    echo "Installing spotify"
+    wget https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_arduino
     sudo enter-chroot -l bash install_arduino
 fi
 #Install VLC
 if echo "${install[3]}" | grep -iq "^y" ;then
-    echo "Installing spotify"
+    wget https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_vlc
     sudo enter-chroot -l bash install_vlc
 fi
 
@@ -70,10 +70,8 @@ fi
 #Move files and clean up
 sudo mv Shortcuts ~/Shortcuts
 bash bashMod
-#rm -rf crouton
-#rm -rf Install
-#rm -rf LinuxInstall
-#rm -rf bashMod
+rm -rf crouton
+rm -rf bashMod
 
 #List command aliases
 echo ""
