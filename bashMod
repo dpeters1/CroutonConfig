@@ -1,7 +1,6 @@
 #!/bin/bash
 #Adds bash aliases or "shortcuts"
 
-sudo mv  ~/Downloads/programs.txt ~/programs.txt
 cd ~/
 readarray install < programs.txt
 
