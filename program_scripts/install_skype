@@ -1,2 +1,4 @@
+#!/bin/bash
+#Install Skype
 wget download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
 sudo gdebi -n skype-ubuntu-precise_4.3.0.37-1_i386.deb
