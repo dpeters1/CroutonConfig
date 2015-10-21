@@ -7,19 +7,19 @@ echo "Shortcuts:"
 
 readarray install < ~/programs.txt
 
-if echo "${install[1]}" | grep -iq "^y" ;then
+if echo "${install[0]}" | grep -iq "^y" ;then
    echo "spotify --> Open Spotify"
 fi
-if echo "${install[2]}" | grep -iq "^y" ;then
+if echo "${install[1]}" | grep -iq "^y" ;then
     echo "skype --> Open Skype"
 fi
-if echo "${install[3]}" | grep -iq "^y" ;then
+if echo "${install[2]}" | grep -iq "^y" ;then
     echo "steam --> Open Steam"
 fi
-if echo "${install[4]}" | grep -iq "^y" ;then
+if echo "${install[3]}" | grep -iq "^y" ;then
     echo "vlc --> Open VLC"
 fi
-if echo "${install[5]}" | grep -iq "^y" ;then
+if echo "${install[4]}" | grep -iq "^y" ;then
     echo "arduino --> Open Arduino IDE"
 fi
 
