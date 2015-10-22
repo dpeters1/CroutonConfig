@@ -11,7 +11,7 @@ if echo "${install[2]}" | grep -iq "^y" ;then
     echo 'alias skype="sudo enter-chroot -b xiwi -T skype"' >> .bashrc
 fi
 if echo "${install[3]}" | grep -iq "^y" ;then
-    echo 'alias steam="sudo enter-chroot -b xiwi -F steam"' >> .bashrc
+    echo 'alias steam="sudo iptables-restore < ~/iptables.rules; sudo enter-chroot -b xiwi -F steam"' >> .bashrc
 fi
 if echo "${install[4]}" | grep -iq "^y" ;then
     echo 'alias vlc="sudo enter-chroot -b xiwi -F vlc"' >> .bashrc
