@@ -6,5 +6,3 @@
 #tar xf adafruit-arduino-1.6.4-linux64.tar.xz -C ~/
 #sudo apt-get -y install openjdk-7-jre
 sudo apt-get -y install arduino arduino-core
-#sudo adduser $USER dialout
-#sudo adduser $USER serial
