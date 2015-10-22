@@ -54,6 +54,12 @@ fi
 if echo "${install[2]}" | grep -iq "^y" ;then
     sudo wget -P /mnt/stateful_partition/crouton/chroots/trusty https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_steam
     sudo enter-chroot -l bash install_steam
+    #Open ports for Steam in-home streaming
+    sudo iptables -I INPUT -p udp --dport 27031 -j ACCEPT
+    sudo iptables -I INPUT -p udp --dport 27036 -j ACCEPT
+    sudo iptables -I INPUT -p tcp --dport 27036 -j ACCEPT
+    sudo iptables -I INPUT -p tcp --dport 27037 -j ACCEPT
+    sudo iptables-save > ~/iptables.rules
 fi
 
 #Install Arduino
