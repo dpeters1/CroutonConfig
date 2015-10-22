@@ -23,7 +23,8 @@ Installs on top of regular chroot:
 
 Instructions:
 
-1. [Download Installer File](https://goo.gl/R2ZnHV)
+1. Put your Chromebook into Dev mode. [Instructions](http://pastebin.com/saiCfaGu)
+2. [Download Installer File](https://goo.gl/R2ZnHV)
 2. Open a shell in chromeos and type <code> bash ~/Downloads/Install </code>
 3. Wait ~15 minutes for ubuntu to install
 4. Follow on screen instructions
