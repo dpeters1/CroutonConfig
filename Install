@@ -30,7 +30,7 @@ do
 done
 
 echo > ~/programs.txt
-for i in {0..4}
+for i in {0..5}
 do
    echo "${install[i]}" >> ~/programs.txt
 done
