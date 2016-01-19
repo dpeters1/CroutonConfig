@@ -25,6 +25,9 @@ fi
 if echo "${install[6]}" | grep -iq "^y" ;then
     echo "atom --> Open Atom text editor"
 fi
+if echo "${install[7]}" | grep -iq "^y" ;then
+    echo "rdesktop --> Open a remote desktop session"
+fi
 
 echo "term --> Open chroot terminal"
 echo "off --> turn off screen but disable Standby when lid closed **USE WITH CAUTION**"
