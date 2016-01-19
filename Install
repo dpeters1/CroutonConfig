@@ -12,7 +12,7 @@ sudo sh crouton -r trusty -t xiwi,core
 
 echo "Programs to be Installed:"
 
-programs=( Spotify Skype Steam VLC ArduinoIDE )
+programs=( Spotify Skype Steam VLC ArduinoIDE Atom )
 
 for program in ${programs[@]}
 do
@@ -73,6 +73,11 @@ fi
 if echo "${install[3]}" | grep -iq "^y" ;then
     sudo wget -P /mnt/stateful_partition/crouton/chroots/trusty https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_vlc
     sudo enter-chroot -l bash install_vlc
+fi
+#Install atom
+if echo "${install[5]}" | grep -iq "^y" ;then
+    sudo wget -P /mnt/stateful_partition/crouton/chroots/trusty https://github.com/dpeters1/CroutonConfig/raw/master/program_scripts/install_atom
+    sudo enter-chroot -l bash install_atom
 fi
 sudo enter-chroot -l bash install_check
 
