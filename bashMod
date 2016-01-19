@@ -19,8 +19,7 @@ fi
 if echo "${install[5]}" | grep -iq "^y" ;then
     echo 'alias arduino="sudo enter-chroot -b xiwi -T arduino"' >> .bashrc
 fi
-if echo "${install[6]}" | grep -iq "^y" ;then
-    echo 'alias atom="sudo enter-chroot -b xiwi -F atom"' >> .bashrc
+
 echo 'alias term="sudo enter-chroot"' >> .bashrc
 echo 'alias on="sudo start powerd"' >> .bashrc
 echo 'alias off="sudo enter-chroot brightness 0%; sudo stop powerd"' >> .bashrc
