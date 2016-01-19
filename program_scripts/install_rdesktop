@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd ~/Downloads
+wget https://github.com/rdesktop/rdesktop/releases/download/v1.8.3/rdesktop-1.8.3.tar.gz
+sudo apt-get update
+sudo apt-get install -y build-essential libx11-dev libssl-dev libgssglue-dev libpcsclite-dev
+tar zxvf rdesktop-1.8.3.tar.gz 
+cd rdesktop-1.8.3
+./configure
+make
+sudo make install
